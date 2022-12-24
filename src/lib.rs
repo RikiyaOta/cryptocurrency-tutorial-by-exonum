@@ -1,5 +1,6 @@
 use exonum::merkledb::access::Access;
 use exonum_crypto::PublicKey;
+use exonum_derive::{exonum_interface, interface_method};
 
 mod proto;
 
@@ -57,4 +58,18 @@ pub struct TxTransfer {
     pub to: PublicKey,
     pub amount: u64,
     pub seed: u64,
+}
+
+/// Cryptocurrency service transactions.
+#[exonum_interface]
+pub trait CryptocurrencyInterface<Ctx> {
+    /// Output of the methods in this interface.
+    type Output;
+
+    /// Creates wallet with the given `name`.
+    #[interface_method(id = 0)]
+    fn create_wallet(&self, ctx: Ctx, arg: TxCreateWallet) -> Self::Output;
+
+    #[interface_method(id = 1)]
+    fn transfer(&self, ctx: Ctx, arg: TxTransfer) -> Self::Output;
 }
