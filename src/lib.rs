@@ -44,3 +44,17 @@ impl<T: Access> CurrencySchema<T> {
         Self::from_root(access).unwrap()
     }
 }
+
+#[derive(Serialize, Deserialize, Clone, Debug, ProtobufConvert, BinaryValue)]
+#[protobuf_convert(source = "proto::TxCreateWallet")]
+pub struct TxCreateWallet {
+    pub name: String,
+}
+
+#[derive(Serialize, Deserialize, Clone, Debug, ProtobufConvert, BinaryValue)]
+#[protobuf_convert(source = "proto::TxTransfer")]
+pub struct TxTransfer {
+    pub to: PublicKey,
+    pub amount: u64,
+    pub seed: u64,
+}

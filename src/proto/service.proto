@@ -10,3 +10,19 @@ message Wallet {
     string name = 2;
     uint64 balance = 3;
 }
+
+// Transaction type for creating a new wallet.
+message TxCreateWallet {
+    // UTF-8 string with the owner's name.
+    string name = 1;
+}
+
+// Transaction type for transferring tokens between two wallets.
+message TxTransfer {
+    // Public key of the receiver
+    exonum.crypto.PublicKey to = 1;
+    // Number of tokens to transfer from the sender's account to the receiver's account.
+    uint64 amount = 2;
+    // Auxiliary number to guarantee non-idempotence of transactions.
+    uint64 seed = 3;
+}
