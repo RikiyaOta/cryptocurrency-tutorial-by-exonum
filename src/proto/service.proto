@@ -1,0 +1,12 @@
+syntax = "proto3";
+
+// Allows to use `exonum.PublicKey` structure already described in `exonum`
+// library.
+import "types.proto";
+
+// Wallet structure used to persist data within the service.
+message Wallet {
+    exonum.crypto.PublicKey pub_key = 1;
+    string name = 2;
+    uint64 balance = 3;
+}

@@ -1,0 +1,5 @@
+{
+    "editor.defaultFormatter": "rust-lang.rust-analyzer",
+    "editor.formatOnType": true,
+    "editor.formatOnSave": true
+}
