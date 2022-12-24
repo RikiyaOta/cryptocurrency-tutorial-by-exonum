@@ -73,3 +73,14 @@ pub trait CryptocurrencyInterface<Ctx> {
     #[interface_method(id = 1)]
     fn transfer(&self, ctx: Ctx, arg: TxTransfer) -> Self::Output;
 }
+
+/// Error codes emitted by `TxCreateWallet` and/or `TxTransfer`
+/// transactions during execution.
+#[derive(Debug, ExecutionFail)]
+pub enum Error {
+    WalletAlreadyExists = 0,
+    SenderNotFound = 1,
+    ReceiverNotFound = 2,
+    InsufficientCurrencyAmount = 3,
+    SenderSameAsReceiver = 4,
+}
