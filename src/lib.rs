@@ -5,8 +5,7 @@ mod proto;
 
 const INIT_BALANCE: u64 = 100;
 
-#[derive(Serialize, Deserialize, Clone, Debug)]
-#[derive(ProtobufConvert, BinaryValue, ObjectHash)]
+#[derive(Serialize, Deserialize, Clone, Debug, ProtobufConvert, BinaryValue, ObjectHash)]
 #[protobuf_convert(source = "proto::Wallet")]
 pub struct Wallet {
     pub pub_key: PublicKey,
@@ -37,7 +36,7 @@ impl Wallet {
 
 #[derive(Debug, FromAccess)]
 pub struct CurrencySchema<T: Access> {
-    pub wallets: MapIndex<T::Base, PublicKey, Wallet>
+    pub wallets: MapIndex<T::Base, PublicKey, Wallet>,
 }
 
 impl<T: Access> CurrencySchema<T> {
