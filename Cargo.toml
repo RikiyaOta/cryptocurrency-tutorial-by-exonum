@@ -2,7 +2,22 @@
 name = "cryptocurrency-tutorial-by-exonum"
 version = "0.1.0"
 edition = "2021"
+authors = ["Rikiya Ota <rikiya0421.fcb6@gmail.com>"]
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
+exonum = "1.0.0"
+exonum-crypto = "1.0.0"
+exonum-derive = "1.0.0"
+exonum-proto = "1.0.0"
+exonum-rust-runtime = "1.0.0"
+
+failure = "0.1.5"
+protobuf = "3.2.0"
+serde = "1.0"
+serde_derive = "1.0"
+serde_json = "1.0"
+
+[build-dependencies]
+exonum-build = "1.0.0"
