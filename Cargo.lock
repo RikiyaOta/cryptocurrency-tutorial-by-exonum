@@ -852,10 +852,12 @@ dependencies = [
 name = "cryptocurrency-tutorial-by-exonum"
 version = "0.1.0"
 dependencies = [
+ "anyhow",
  "exonum",
  "exonum-build",
  "exonum-crypto",
  "exonum-derive",
+ "exonum-merkledb",
  "exonum-proto",
  "exonum-rust-runtime",
  "failure",

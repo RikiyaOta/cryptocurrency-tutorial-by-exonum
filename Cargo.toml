@@ -10,9 +10,11 @@ authors = ["Rikiya Ota <rikiya0421.fcb6@gmail.com>"]
 exonum = "1.0.0"
 exonum-crypto = "1.0.0"
 exonum-derive = "1.0.0"
+exonum-merkledb = "1.0.0"
 exonum-proto = "1.0.0"
 exonum-rust-runtime = "1.0.0"
 
+anyhow = "1"
 failure = "0.1.5"
 protobuf = "3.2.0"
 serde = "1.0"
