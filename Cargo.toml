@@ -2,7 +2,37 @@
 name = "cryptocurrency-tutorial-by-exonum"
 version = "0.1.0"
 edition = "2021"
+authors = ["Rikiya Ota <rikiya0421.fcb6@gmail.com>"]
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
+exonum = "1.0.0"
+exonum-crypto = "1.0.0"
+exonum-derive = "1.0.0"
+exonum-merkledb = "1.0.0"
+exonum-proto = "1.0.0"
+exonum-rust-runtime = "1.0.0"
+
+anyhow = "1"
+failure = "0.1.5"
+protobuf = "2" # なぜか 3 でビルドが失敗する。破壊的変更があったみたいだが、直接の原因がわからない。
+# protobuf = "3"
+serde = { version = "1.0", features = [ "derive" ]}
+serde_derive = "1.0"
+serde_json = "1.0"
+
+[dev-dependencies]
+exonum-cli = "1.0.0"
+exonum-explorer-service = "1.0.0"
+exonum-testkit = "1.0.0"
+pretty_assertions = "1"
+rand = "0.8"
+
+[dev-dependencies.tokio]
+version = "0.2.25"
+# features = ["io-util", "macros", "net", "time"]
+# features = ["io-util", "macros", "rt-multi-thread", "net", "time"]
+
+[build-dependencies]
+exonum-build = "1.0.1"
