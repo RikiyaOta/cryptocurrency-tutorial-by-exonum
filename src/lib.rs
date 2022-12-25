@@ -64,3 +64,26 @@ pub mod schema {
         }
     }
 }
+
+pub mod transactions {
+    use exonum::crypto::PublicKey;
+    use exonum_derive::{BinaryValue, ObjectHash};
+    use exonum_proto::ProtobufConvert;
+    use serde::{Deserialize, Serialize};
+
+    use super::proto;
+
+    #[derive(Serialize, Deserialize, Clone, Debug, ProtobufConvert, BinaryValue, ObjectHash)]
+    #[protobuf_convert(source = "proto::TxCreateWallet")]
+    pub struct TxCreateWallet {
+        pub name: String,
+    }
+
+    #[derive(Serialize, Deserialize, Clone, Debug, ProtobufConvert, BinaryValue, ObjectHash)]
+    #[protobuf_convert(source = "proto::TxTransfer")]
+    pub struct TxTransfer {
+        pub to: PublicKey,
+        pub amount: u64,
+        pub seed: u64,
+    }
+}
